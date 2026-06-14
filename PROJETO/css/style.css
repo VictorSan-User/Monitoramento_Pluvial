@@ -1,0 +1,76 @@
+body{
+    background:#f5f7fb;
+    font-family:Segoe UI,sans-serif;
+}
+
+.sidebar{
+    width:240px;
+    min-height:100vh;
+    background:#072B6B;
+    color:white;
+    display:flex;
+    flex-direction:column;
+}
+
+.logo{
+    padding:25px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.logo h4{
+    margin:0;
+}
+
+.logo span{
+    font-size:12px;
+}
+
+.menu{
+    list-style:none;
+    padding:20px;
+}
+
+.menu li{
+    padding:14px;
+    margin-bottom:10px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.menu li.active{
+    background:#1967ff;
+}
+
+.logout{
+    margin-top:auto;
+    padding:20px;
+}
+
+.content{
+    flex:1;
+    padding:30px;
+}
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.card-info{
+    color:white;
+    padding:25px;
+    border-radius:15px;
+}
+
+.card-info h1{
+    font-size:48px;
+    font-weight:700;
+}
+
+.card{
+    border:none;
+    border-radius:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
