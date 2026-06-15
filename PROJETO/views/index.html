@@ -3,23 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Sistema de Monitoramento</title>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link rel="stylesheet" href="../css/style.css">
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-
-<div class="d-flex">
-
-    <!-- SIDEBAR -->
+<div class="app-shell d-flex">
     <aside class="sidebar">
-
         <div class="logo">
             <h4>MONITORAMENTO</h4>
         </div>
@@ -32,124 +24,82 @@
         </ul>
 
         <div class="logout">
-            Sair
+            <a href="../logout.php" class="text-light text-decoration-none">Sair</a>
         </div>
     </aside>
 
-    <!-- CONTEÚDO -->
     <main class="content">
-
-        <!-- TOPO -->
         <div class="topbar">
-
             <div>
                 <h4>Sistema de Monitoramento</h4>
                 <small id="dataAtual"></small>
             </div>
 
             <div class="d-flex align-items-center gap-3">
-
-                <span class="badge bg-success p-2">
-                    Online
-                </span>
-
+                <span class="badge bg-success p-2">Online</span>
                 <span id="horaAtual"></span>
-
             </div>
-
         </div>
 
-        <!-- TITULO -->
         <div class="mb-4">
             <h1>Painel de Controle</h1>
-            <p>
-                Visão geral do monitoramento pluvial e drenagem urbana
-            </p>
+            <p>Visão geral do monitoramento pluvial e drenagem urbana</p>
         </div>
 
-        <!-- CARDS -->
         <div class="row g-4">
-
             <div class="col-md-4">
                 <div class="card-info bg-danger">
-
                     <h6>BUEIROS CRÍTICOS</h6>
-
-                    <h1 id="bueirosCriticos">
-                        0 %
-                    </h1>
-
-                    <small>Obstrução > 80%</small>
-
+                    <h1 id="bueirosCriticos">0</h1>
+                    <small>Obstrução >= 80% ou chuva com vazão elevada</small>
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="card-info bg-primary">
-
                     <h6>ÍNDICE PLUVIOMÉTRICO</h6>
-
-                    <h1>
-                        <span id="indicePluviometrico">0</span> mm
-                    </h1>
-
+                    <h1><span id="indicePluviometrico">0</span> mm</h1>
                     <small>Média instantânea</small>
-
                 </div>
             </div>
 
             <div class="col-md-4">
                 <div class="card-info bg-info">
-
                     <h6>VAZÃO MÉDIA</h6>
-
-                    <h1>
-                        <span id="vazaoMedia">0</span> L/s
-                    </h1>
-
+                    <h1><span id="vazaoMedia">0</span> L/s</h1>
                     <small>Volume das galerias</small>
-
                 </div>
             </div>
-
         </div>
 
-        <!-- GRAFICOS -->
+        <section class="alert-panel mt-4" aria-live="polite">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="mb-0">Alertas críticos</h5>
+                <span class="badge bg-danger" id="totalAlertas">0</span>
+            </div>
+            <div id="painelAlertas" class="alert-list"></div>
+        </section>
+
         <div class="row mt-4 g-4">
-
             <div class="col-lg-6">
                 <div class="card p-3">
-
                     <h5>Média de Obstrução por Bairro</h5>
-
                     <canvas id="graficoBairros"></canvas>
-
                 </div>
             </div>
 
             <div class="col-lg-6">
                 <div class="card p-3">
-
                     <h5>Chuva x Vazão</h5>
-
                     <canvas id="graficoChuva"></canvas>
-
                 </div>
             </div>
-
         </div>
 
-        <!-- TABELA -->
         <div class="card mt-4">
-
-            <div class="card-header">
-                Monitoramento em Tempo Real
-            </div>
-
+            <div class="card-header">Monitoramento em Tempo Real</div>
             <div class="table-responsive">
-
-                <table class="table">
-
+                <table class="table mb-0">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -160,22 +110,13 @@
                         <th>Status</th>
                     </tr>
                     </thead>
-
-                    <tbody id="tabelaSensores">
-
-                    </tbody>
-
+                    <tbody id="tabelaSensores"></tbody>
                 </table>
-
             </div>
-
         </div>
-
     </main>
-
 </div>
 
 <script src="../js/dashboard.js"></script>
-
 </body>
 </html>

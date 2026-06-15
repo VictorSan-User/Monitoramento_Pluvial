@@ -3,9 +3,13 @@ body{
     font-family:Segoe UI,sans-serif;
 }
 
+.app-shell{
+    min-height:100vh;
+}
+
 .sidebar{
     width:240px;
-    min-height:100vh;
+    min-height:100%;
     background:#072B6B;
     color:white;
     display:flex;
@@ -33,7 +37,7 @@ body{
 .menu li{
     padding:14px;
     margin-bottom:10px;
-    border-radius:10px;
+    border-radius:8px;
     cursor:pointer;
 }
 
@@ -49,6 +53,7 @@ body{
 .content{
     flex:1;
     padding:30px;
+    min-width:0;
 }
 
 .topbar{
@@ -61,7 +66,8 @@ body{
 .card-info{
     color:white;
     padding:25px;
-    border-radius:15px;
+    border-radius:8px;
+    min-height:156px;
 }
 
 .card-info h1{
@@ -71,6 +77,61 @@ body{
 
 .card{
     border:none;
-    border-radius:15px;
+    border-radius:8px;
     box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.alert-panel{
+    background:#fff;
+    border-left:5px solid #dc3545;
+    border-radius:8px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+    padding:18px;
+}
+
+.alert-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:12px;
+}
+
+.alert-item{
+    border:1px solid #f1b6bd;
+    border-radius:8px;
+    padding:12px;
+    background:#fff5f6;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+.alert-item span,
+.alert-item small{
+    color:#6b7280;
+}
+
+.alert-empty{
+    color:#64748b;
+    padding:8px 0;
+}
+
+@media (max-width: 768px){
+    .app-shell{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        min-height:auto;
+    }
+
+    .content{
+        padding:20px;
+    }
+
+    .topbar{
+        align-items:flex-start;
+        gap:12px;
+        flex-direction:column;
+    }
 }

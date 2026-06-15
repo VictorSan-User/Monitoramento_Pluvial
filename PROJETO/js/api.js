@@ -1,14 +1,9 @@
-fetch('/api/dashboard')
-.then(response => response.json())
-.then(data => {
+fetch("../api/dashboard.php")
+    .then(response => response.json())
+    .then(data => {
+        const resumo = data.resumo || {};
 
-    document.getElementById("bueirosCriticos")
-        .innerText = data.bueiros_criticos;
-
-    document.getElementById("indicePluviometrico")
-        .innerText = data.pluviometrico;
-
-    document.getElementById("vazaoMedia")
-        .innerText = data.vazao;
-
-});
+        document.getElementById("bueirosCriticos").innerText = resumo.bueiros_criticos ?? 0;
+        document.getElementById("indicePluviometrico").innerText = resumo.pluviometrico_medio ?? 0;
+        document.getElementById("vazaoMedia").innerText = resumo.vazao_media ?? 0;
+    });

@@ -1,0 +1,36 @@
+# envs
+.env
+*.env
+!.env.example
+PROJETO/.env
+!PROJETO/.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.python-version
+.venv/
+venv/
+env/
+
+
+vendor/
+
+
+# Logs
+*.log
+*.pid
+*.tmp
+*.cache
+
+# Local
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+
+# OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
