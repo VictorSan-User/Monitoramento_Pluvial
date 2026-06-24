@@ -9,8 +9,9 @@ try {
     $where = '';
 
     if ($busca !== '') {
-        $where = "WHERE codigo_patrimonial LIKE :busca OR bairro LIKE :busca OR CAST(id_bueiro AS CHAR) = :id_busca";
+        $where = "WHERE codigo_patrimonial LIKE :codigo_patrimonial OR bairro LIKE :busca OR CAST(id_bueiro AS CHAR) = :id_busca";
         $params = [
+            ':codigo_patrimonial' =>'%' . $busca . '%',
             ':busca' => '%' . $busca . '%',
             ':id_busca' => ctype_digit($busca) ? $busca : '-1',
         ];
